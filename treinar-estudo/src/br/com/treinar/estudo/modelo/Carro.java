@@ -7,6 +7,7 @@ public class Carro {
 	public Integer velocidadeAtual;
 	public Integer qtdMarcha;
 	public Integer marchaAtual;
+	public String placa;
 	
 	public void acelerar() {
 //		velocidadeAtual = velocidadeAtual + 1;
