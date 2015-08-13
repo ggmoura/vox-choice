@@ -18,6 +18,11 @@ public class TesteCarro {
 		c.acelerar();
 		System.out.println(c.velocidadeAtual);
 		
+		c.trocarMarcha(9);
+		System.out.println(c.marchaAtual);
+		c.trocarMarcha(6);
+		System.out.println(c.marchaAtual);
+		
 	}
 	
 }
