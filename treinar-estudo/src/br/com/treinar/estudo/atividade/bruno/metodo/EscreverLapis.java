@@ -1,4 +1,4 @@
-package br.com.treinar.estudo.atividade.bruno;
+package br.com.treinar.estudo.atividade.bruno.metodo;
 
 
 public class EscreverLapis {
