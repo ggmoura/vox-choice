@@ -10,6 +10,7 @@ public class TesteCarro {
 		c.velocidadeAtual = 0;
 		c.velocidadeMaxima = 160;
 		c.qtdMarcha = 6;
+		c.placa = "AAA-1234";
 		
 		c.acelerar();
 		c.acelerar();
