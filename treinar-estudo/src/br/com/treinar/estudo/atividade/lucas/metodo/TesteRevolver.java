@@ -9,7 +9,7 @@ public class TesteRevolver {
 		r.qtdBalasAtual = 0;
 		r.qtdBalasTotal = 6;
 		
-		Boolean atirou = r.atirar();
+		r.atirar();
 		System.out.println(r.qtdBalasAtual);
 		r.recarregar(4);
 		r.atirar();

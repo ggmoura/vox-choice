@@ -14,12 +14,11 @@ public class Revolver {
 		}
 	}
 	
-	public Boolean atirar() {
-		boolean atirou = false;
-		if (qtdBalasAtual > 0) {
-			qtdBalasAtual--;
-			atirou = true;
+	public void atirar() {
+		if (qtdBalasAtual <=0) {
+			recarregar(1);
 		}
-		return atirou;
+		qtdBalasAtual--;
+	
 	}
 }
