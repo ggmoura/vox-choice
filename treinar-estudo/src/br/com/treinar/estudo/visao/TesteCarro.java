@@ -1,6 +1,7 @@
 package br.com.treinar.estudo.visao;
 
 import br.com.treinar.estudo.modelo.Carro;
+import br.com.treinar.estudo.modelo.Pessoa;
 
 public class TesteCarro {
 
@@ -10,7 +11,6 @@ public class TesteCarro {
 		c.velocidadeAtual = 0;
 		c.velocidadeMaxima = 160;
 		c.qtdMarcha = 6;
-		c.placa = "AAA-1234";
 		
 		c.acelerar();
 		c.acelerar();
@@ -18,10 +18,25 @@ public class TesteCarro {
 		c.acelerar();
 		System.out.println(c.velocidadeAtual);
 		
-		c.trocarMarcha(9);
-		System.out.println(c.marchaAtual);
-		c.trocarMarcha(6);
-		System.out.println(c.marchaAtual);
+		
+		Integer marcha = c.recuperarMarchaAtual();
+		
+		System.out.println(marcha);
+		
+		c.proprietario = new Pessoa();
+		
+		c.proprietario.nome = "Gleidson";
+		c.proprietario.cpf = 55546265302l;
+		c.proprietario.sexo = 'M';
+		
+		Pessoa dono = c.recuperarProprietario();
+		Pessoa dono2 = c.criarProprietario();
+		System.out.println(dono.nome);
+		System.out.println(dono.cpf);
+		System.out.println(dono.sexo);
+		System.out.println(dono2.nome);
+		System.out.println(dono2.cpf);
+		System.out.println(dono2.sexo);
 		
 	}
 	

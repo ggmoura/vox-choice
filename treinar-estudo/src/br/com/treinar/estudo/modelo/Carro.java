@@ -1,5 +1,4 @@
 package br.com.treinar.estudo.modelo;
-
 public class Carro {
 
 	public String nome;
@@ -7,7 +6,9 @@ public class Carro {
 	public Integer velocidadeAtual;
 	public Integer qtdMarcha;
 	public Integer marchaAtual;
-	public String placa;
+	public Pessoa proprietario;
+	
+	
 	
 	public void acelerar() {
 //		velocidadeAtual = velocidadeAtual + 1;
@@ -49,4 +50,23 @@ public class Carro {
 		}
 	}
 	
+	public Integer recuperarMarchaAtual() {
+		//definir marcha
+		return marchaAtual;
+	}
+
+	public Pessoa recuperarProprietario() {
+		//regra
+		return proprietario;
+	}
+
+	public Pessoa criarProprietario() {
+		Pessoa p = new Pessoa();
+		p.nome = "criada";
+		p.cpf = 645654346l;
+		p.sexo = 'F';
+		return p;
+	}
+
+
 }
