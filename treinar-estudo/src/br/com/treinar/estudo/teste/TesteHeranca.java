@@ -1,4 +1,8 @@
-package br.com.treinar.estudo.modelo;
+package br.com.treinar.estudo.teste;
+
+import br.com.treinar.estudo.modelo.Homem;
+import br.com.treinar.estudo.modelo.Mulher;
+import br.com.treinar.estudo.modelo.Pessoa;
 
 public class TesteHeranca {
 
