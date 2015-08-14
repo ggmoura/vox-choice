@@ -27,16 +27,13 @@ public class TesteCarro {
 		
 		c.proprietario.nome = "Gleidson";
 		c.proprietario.cpf = 55546265302l;
-		c.proprietario.sexo = 'M';
 		
 		Pessoa dono = c.recuperarProprietario();
 		Pessoa dono2 = c.criarProprietario();
 		System.out.println(dono.nome);
 		System.out.println(dono.cpf);
-		System.out.println(dono.sexo);
 		System.out.println(dono2.nome);
 		System.out.println(dono2.cpf);
-		System.out.println(dono2.sexo);
 		
 	}
 	

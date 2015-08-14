@@ -63,7 +63,6 @@ public class Carro {
 		Pessoa p = new Pessoa();
 		p.nome = "criada";
 		p.cpf = 645654346l;
-		p.sexo = 'F';
 		return p;
 	}
 

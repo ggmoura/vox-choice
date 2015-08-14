@@ -9,22 +9,19 @@ public class CriaPessoa {
 		Pessoa p = null;
 		p = new Pessoa();
 		p.nome = "Maria Sophia";
-		p.sexo = 'F';
 		p.cpf = 55546265302L;
 		
 		System.out.println(p.nome);
 		System.out.println(p.cpf);
-		System.out.println(p.sexo);
 		
 		p = new Pessoa();
 		
 		p.nome = "Nathalia Cravo";
-		p.sexo = 'F';
 		p.cpf = 44446265302L;
 		
 		System.out.println(p.nome);
 		System.out.println(p.cpf);
-		System.out.println(p.sexo);
+
 		
 		Pessoa p2 = p;
 		
@@ -34,20 +31,12 @@ public class CriaPessoa {
 		
 		p2 = null;
 		//p = null;
-		
-		if (p.sexo == 'F') {
-			Pessoa p3 = new Pessoa();
-			p3.cpf = 654654654646l;
-			p3.nome = "João Carlos";
-			p3.sexo = 'M';
+		Pessoa p3 = new Pessoa();
+		p3.cpf = 654654654646l;
+		p3.nome = "João Carlos";
 			
-			System.out.println(p3.nome);
-			
-		}
-		
-		
-		
-		
+		System.out.println(p3.nome);
+
 	}
 	
 }
