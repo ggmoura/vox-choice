@@ -1,4 +1,5 @@
 package br.com.treinar.estudo.modelo;
+
 public class Carro {
 
 	public String nome;
@@ -7,18 +8,16 @@ public class Carro {
 	public Integer qtdMarcha;
 	public Integer marchaAtual;
 	public Pessoa proprietario;
-	
-	
-	
+
 	public void acelerar() {
-//		velocidadeAtual = velocidadeAtual + 1;
-//		velocidadeAtual += 1;
+		// velocidadeAtual = velocidadeAtual + 1;
+		// velocidadeAtual += 1;
 		if (velocidadeAtual < velocidadeMaxima) {
 			velocidadeAtual++;
 			trocarMarcha();
 		}
 	}
-	
+
 	public void trocarMarcha(Integer marcha) {
 		if (marcha > 0 && marcha <= 6) {
 			marchaAtual = marcha;
@@ -33,30 +32,30 @@ public class Carro {
 		} else if (velocidadeAtual < 20) {
 			marchaAtual = 2;
 		} else if (velocidadeAtual < 30) {
-			marchaAtual = 3;			
+			marchaAtual = 3;
 		} else if (velocidadeAtual < 40) {
-			marchaAtual = 4;						
+			marchaAtual = 4;
 		} else {
 			marchaAtual = 5;
 		}
 	}
-	
+
 	public void desacelerar() {
-//		velocidadeAtual = velocidadeAtual + 1;
-//		velocidadeAtual += 1;
+		// velocidadeAtual = velocidadeAtual + 1;
+		// velocidadeAtual += 1;
 		if (velocidadeAtual > 0) {
 			velocidadeAtual--;
 			trocarMarcha();
 		}
 	}
-	
+
 	public Integer recuperarMarchaAtual() {
-		//definir marcha
+		// definir marcha
 		return marchaAtual;
 	}
 
 	public Pessoa recuperarProprietario() {
-		//regra
+		// regra
 		return proprietario;
 	}
 
@@ -67,6 +66,5 @@ public class Carro {
 		p.sexo = 'F';
 		return p;
 	}
-
 
 }
