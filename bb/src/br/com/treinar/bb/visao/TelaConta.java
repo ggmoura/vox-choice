@@ -3,6 +3,10 @@ package br.com.treinar.bb.visao;
 import java.util.Scanner;
 
 import br.com.treinar.bb.controle.ContaControle;
+import br.com.treinar.bb.modelo.ContaCorrente;
+import br.com.treinar.bb.modelo.ContaInvestimento;
+import br.com.treinar.bb.modelo.ContaPoupanca;
+import br.com.treinar.bb.modelo.ContaSalario;
 import br.com.treinar.bb.modelo.Pessoa;
 import br.com.treinar.bb.modelo.banco.Conta;
 
@@ -26,7 +30,7 @@ public class TelaConta {
 			
 			switch (opcao) {
 			case 1:
-				criarConta();
+				cadastrarConta();
 				//System.out.println(conta.cliente.nome);
 				break;
 			case 2:
@@ -74,8 +78,68 @@ public class TelaConta {
 		System.out.println("Deposito efetuado com sucesso!");
 	}
 
-	private void criarConta() {
-		Conta conta = new Conta();
+	private void cadastrarConta() {
+		System.out.println("Digite\n1 - Corrente\n"
+				         + "2 - Poupança\n3 - Salário\n4 - Investimento");
+		Conta conta = null;
+		Integer opcao = leitor.nextInt();
+		switch (opcao) {
+		case 1:
+			//cria uma referencia de conta corrente e pasasa para 
+			//o metodo criarConta()
+			criarConta(new ContaCorrente());
+			break;
+		case 2:
+			criarConta(new ContaPoupanca());
+			break;
+		case 3:
+			//poderia criar a conta e passar o objeto mas para isso
+			//tenho que fazer o casting
+			conta = new ContaSalario();
+			criarConta((ContaSalario)conta);
+			
+			break;
+		case 4:
+			conta = new ContaInvestimento();
+			criarConta((ContaInvestimento)conta);
+			
+			break;
+
+		default:
+			break;
+		}
+		controle.gravarConta(conta);
+	}
+	
+	private void criarConta(ContaInvestimento conta) {
+		criarContaPadrao(conta);
+		System.out.print("Informe o valor da taxa de rendimento: ");
+		conta.taxaRendimento = leitor.nextDouble();
+		System.out.print("Informe a quantidade de meses para resgade: ");
+		conta.mesesParaResgate = leitor.nextInt();
+	}
+
+	private void criarConta(ContaSalario conta) {
+		criarContaPadrao(conta);
+		System.out.print("Informe o valor do salário: ");
+		conta.valorSalario = leitor.nextDouble();				
+	}
+
+	private void criarConta(ContaPoupanca conta) {
+		criarContaPadrao(conta);
+		System.out.print("Informe o valor da taxa de rendimento: ");
+		conta.taxaRendimento = leitor.nextDouble();		
+	}
+
+	private void criarConta(ContaCorrente conta) {
+		criarContaPadrao(conta);
+		System.out.print("Informe o valor da taxa de manutenção: ");
+		conta.taxaManutencao = leitor.nextDouble();
+		System.out.print("Informe o valor do limite de crédito: ");
+		conta.limiteCredito = leitor.nextDouble();
+	}
+
+	private void criarContaPadrao(Conta conta) {
 		System.out.print("Informe o nome do Cliente: ");
 		leitor.nextLine();
 		conta.cliente = new Pessoa();
@@ -85,7 +149,6 @@ public class TelaConta {
 		System.out.print("Informe o Sexo do Cliente: ");
 		leitor.nextLine();
 		conta.cliente.sexo = leitor.nextLine();
-		controle.gravarConta(conta);
 	}
 
 	public String recuperarMenu() {
