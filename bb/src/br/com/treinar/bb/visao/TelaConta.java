@@ -85,12 +85,12 @@ public class TelaConta {
 		Integer opcao = leitor.nextInt();
 		switch (opcao) {
 		case 1:
-			//cria uma referencia de conta corrente e pasasa para 
-			//o metodo criarConta()
-			criarConta(new ContaCorrente());
+			conta = new ContaCorrente();
+			criarConta((ContaCorrente)conta);
 			break;
 		case 2:
-			criarConta(new ContaPoupanca());
+			conta = new ContaPoupanca();
+			criarConta((ContaPoupanca) conta);
 			break;
 		case 3:
 			//poderia criar a conta e passar o objeto mas para isso
