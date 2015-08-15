@@ -3,7 +3,7 @@ package br.com.treinar.bb.modelo.banco;
 import br.com.treinar.bb.modelo.Pessoa;
 
 //Modelo de conta 
-public class Conta {
+public abstract class Conta {
 
 	//atributos
 	public Long numeroConta;
@@ -15,14 +15,7 @@ public class Conta {
 		saldo += valor;
 	}
 	
-	public Boolean sacar(Double valor) {
-		Boolean sacou = Boolean.FALSE;
-		if (saldo >= valor) {
-			saldo -= valor;
-			sacou = Boolean.TRUE;
-		} 
-		return sacou;
-	}
+	public abstract Boolean sacar(Double valor);
 	
 	public Double recuperarSaldo() {
 		return saldo;
