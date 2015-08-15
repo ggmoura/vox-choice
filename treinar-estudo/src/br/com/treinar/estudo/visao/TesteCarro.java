@@ -1,6 +1,7 @@
 package br.com.treinar.estudo.visao;
 
 import br.com.treinar.estudo.modelo.Carro;
+import br.com.treinar.estudo.modelo.Mulher;
 import br.com.treinar.estudo.modelo.Pessoa;
 
 public class TesteCarro {
@@ -23,7 +24,7 @@ public class TesteCarro {
 		
 		System.out.println(marcha);
 		
-		c.proprietario = new Pessoa();
+		c.proprietario = new Mulher();
 		
 		c.proprietario.nome = "Gleidson";
 		c.proprietario.cpf = 55546265302l;

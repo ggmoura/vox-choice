@@ -60,7 +60,7 @@ public class Carro {
 	}
 
 	public Pessoa criarProprietario() {
-		Pessoa p = new Pessoa();
+		Pessoa p = new Mulher();
 		p.nome = "criada";
 		p.cpf = 645654346l;
 		return p;
