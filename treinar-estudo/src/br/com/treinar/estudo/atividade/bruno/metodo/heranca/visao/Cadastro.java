@@ -1,4 +1,9 @@
-package br.com.treinar.estudo.atividade.bruno.metodo.heranca;
+package br.com.treinar.estudo.atividade.bruno.metodo.heranca.visao;
+
+import br.com.treinar.estudo.atividade.bruno.metodo.heranca.modelo.Carro;
+import br.com.treinar.estudo.atividade.bruno.metodo.heranca.modelo.Compacto;
+import br.com.treinar.estudo.atividade.bruno.metodo.heranca.modelo.Esportivo;
+import br.com.treinar.estudo.atividade.bruno.metodo.heranca.modelo.SedaMedio;
 
 
 public class Cadastro {
