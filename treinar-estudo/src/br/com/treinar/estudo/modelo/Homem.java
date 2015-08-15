@@ -6,7 +6,7 @@ public class Homem extends Pessoa {
 
 	@Override
 	public void caminhar() {
-		System.out.println("pisa duro");
+		System.out.println("caminha pisando duro");
 	}
 	
 }
