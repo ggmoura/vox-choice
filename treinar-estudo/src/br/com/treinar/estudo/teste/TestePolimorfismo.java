@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import br.com.treinar.estudo.modelo.Homem;
 import br.com.treinar.estudo.modelo.Mulher;
-import br.com.treinar.estudo.modelo.Pessoa;
+import br.com.treinar.estudo.modelo.principal.Pessoa;
 
 public class TestePolimorfismo {
 

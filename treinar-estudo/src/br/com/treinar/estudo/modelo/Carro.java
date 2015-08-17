@@ -1,5 +1,7 @@
 package br.com.treinar.estudo.modelo;
 
+import br.com.treinar.estudo.modelo.principal.Pessoa;
+
 public class Carro {
 
 	public String nome;
@@ -61,8 +63,8 @@ public class Carro {
 
 	public Pessoa criarProprietario() {
 		Pessoa p = new Mulher();
-		p.nome = "criada";
-		p.cpf = 645654346l;
+		p.setNome("criada");
+		p.setCpf(645654346l);
 		return p;
 	}
 

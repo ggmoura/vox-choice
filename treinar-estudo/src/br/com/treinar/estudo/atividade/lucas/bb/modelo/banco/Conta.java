@@ -1,6 +1,6 @@
 package br.com.treinar.estudo.atividade.lucas.bb.modelo.banco;
 
-import br.com.treinar.estudo.modelo.Pessoa;
+import br.com.treinar.estudo.modelo.principal.Pessoa;
 
 public class Conta {
 	
