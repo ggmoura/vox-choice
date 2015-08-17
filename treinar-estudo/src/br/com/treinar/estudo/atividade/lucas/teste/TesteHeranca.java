@@ -1,6 +1,5 @@
 package br.com.treinar.estudo.atividade.lucas.teste;
 
-import java.io.InputStream;
 import java.util.Scanner;
 
 import br.com.treinar.estudo.atividade.lucas.metodo.Animal;

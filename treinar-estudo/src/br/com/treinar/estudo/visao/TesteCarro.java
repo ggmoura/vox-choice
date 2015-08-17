@@ -2,7 +2,7 @@ package br.com.treinar.estudo.visao;
 
 import br.com.treinar.estudo.modelo.Carro;
 import br.com.treinar.estudo.modelo.Mulher;
-import br.com.treinar.estudo.modelo.Pessoa;
+import br.com.treinar.estudo.modelo.principal.Pessoa;
 
 public class TesteCarro {
 
@@ -26,15 +26,15 @@ public class TesteCarro {
 		
 		c.proprietario = new Mulher();
 		
-		c.proprietario.nome = "Gleidson";
-		c.proprietario.cpf = 55546265302l;
+		c.proprietario.setNome("Gleidson");
+		c.proprietario.setCpf(55546265302l);
 		
 		Pessoa dono = c.recuperarProprietario();
 		Pessoa dono2 = c.criarProprietario();
-		System.out.println(dono.nome);
-		System.out.println(dono.cpf);
-		System.out.println(dono2.nome);
-		System.out.println(dono2.cpf);
+		System.out.println(dono.getNome());
+		System.out.println(dono.getCpf());
+		System.out.println(dono2.getNome());
+		System.out.println(dono2.getCpf());
 		
 	}
 	
