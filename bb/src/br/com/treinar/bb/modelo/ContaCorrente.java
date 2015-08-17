@@ -11,11 +11,16 @@ public class ContaCorrente extends Conta {
 	public Boolean sacar(Double valor) {
 		valor += 1;
 		Boolean sacou = Boolean.FALSE;
-		if (saldo >= valor) {
-			saldo -= valor;
+		if (getSaldo() >= valor) {
+			setSaldo(getSaldo() - valor);
 			sacou = Boolean.TRUE;
 		}
 		return sacou;
+	}
+	
+	@Override
+	public Double recuperarSaldo() {
+		return super.recuperarSaldo() + limiteCredito;
 	}
 
 }

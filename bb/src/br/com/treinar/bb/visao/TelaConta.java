@@ -141,14 +141,17 @@ public class TelaConta {
 
 	private void criarContaPadrao(Conta conta) {
 		System.out.print("Informe o nome do Cliente: ");
+		//remover linha deixada pela leitura de um numero
 		leitor.nextLine();
-		conta.cliente = new Pessoa();
-		conta.cliente.nome = leitor.nextLine();
+		Pessoa cliente = new Pessoa();
+		conta.setCliente(cliente);
+		conta.getCliente().setNome(leitor.nextLine());
 		System.out.print("Informe o CPF do Cliente: ");
-		conta.cliente.cpf = leitor.nextLong();
+		conta.getCliente().setCpf(leitor.nextLong());
 		System.out.print("Informe o Sexo do Cliente: ");
+		//remover linha deixada pela leitura de um numero
 		leitor.nextLine();
-		conta.cliente.sexo = leitor.nextLine();
+		conta.getCliente().setSexo(leitor.nextLine());
 	}
 
 	public String recuperarMenu() {
