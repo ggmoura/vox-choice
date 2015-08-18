@@ -42,6 +42,9 @@ public class TelaConta {
 			case 4:
 				exibirSaldo();
 				break;
+			case 5:
+				atualizarTaxaRendimento();
+				break;
 
 			default:
 				break;
@@ -49,6 +52,12 @@ public class TelaConta {
 			
 		} while (opcao != 0);
 		
+	}
+
+	private void atualizarTaxaRendimento() {
+		System.out.print("Informe o valor da taxa de rendimento: ");
+		Double valorTaxaRendimento = leitor.nextDouble();
+		controle.atualizarTaxaRendimento(valorTaxaRendimento);
 	}
 
 	private void exibirSaldo() {
@@ -127,8 +136,7 @@ public class TelaConta {
 
 	private void criarConta(ContaPoupanca conta) {
 		criarContaPadrao(conta);
-		System.out.print("Informe o valor da taxa de rendimento: ");
-		conta.taxaRendimento = leitor.nextDouble();		
+		//mais algum atribudo pertinente a conta poupança
 	}
 
 	private void criarConta(ContaCorrente conta) {
@@ -159,6 +167,7 @@ public class TelaConta {
 					+ "2 - Depositar\n"
 					+ "3 - Sacar\n"
 					+ "4 - Exibir Saldo\n"
+					+ "5 - Cadastrar Taxa Rendimento"
 					+ "0 - Sair";
 		return menu;
 	}

@@ -1,5 +1,6 @@
 package br.com.treinar.bb.controle;
 
+import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.util.BancoDados;
 
@@ -43,6 +44,10 @@ public class ContaControle {
 
 	public Double recuperarSaldo() {
 		return bancoDados.conta.recuperarSaldo();
+	}
+	
+	public void atualizarTaxaRendimento(Double valorTaxaRendimento) {
+		ContaPoupanca.setTaxaRendimento(valorTaxaRendimento);
 	}
 	
 }

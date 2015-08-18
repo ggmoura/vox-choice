@@ -4,7 +4,7 @@ import br.com.treinar.bb.modelo.banco.Conta;
 
 public class ContaPoupanca extends Conta {
 
-	public Double taxaRendimento;
+	private static Double taxaRendimento;
 	
 	@Override
 	public Boolean sacar(Double valor) {
@@ -16,4 +16,14 @@ public class ContaPoupanca extends Conta {
 		return sacou;
 	}
 
+	public static Double getTaxaRendimento() {
+		return taxaRendimento;
+	}
+
+	public static void setTaxaRendimento(Double taxaRendimento) {
+		ContaPoupanca.taxaRendimento = taxaRendimento;
+	}
+
+	
+	
 }

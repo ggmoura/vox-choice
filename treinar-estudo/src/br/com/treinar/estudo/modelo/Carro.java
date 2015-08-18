@@ -6,10 +6,31 @@ public class Carro {
 
 	public String nome;
 	public Integer velocidadeMaxima;
-	public Integer velocidadeAtual;
 	public Integer qtdMarcha;
 	public Integer marchaAtual;
 	public Pessoa proprietario;
+	public Double valor;
+	public static Integer taxaIPVA;
+	
+
+	static {
+		taxaIPVA = 4;
+	}
+	
+	static {
+		taxaIPVA = 5;		
+	}
+	
+	public Carro() {
+		System.out.println("criou novo carro");
+	}
+	
+	public static void imprimirTaxaIPVA(Double valor) {
+		//System.out.println(taxaIPVA / 100 * valor);
+		System.out.println(taxaIPVA * 100 / valor);
+	}
+
+	
 
 	public void acelerar() {
 		// velocidadeAtual = velocidadeAtual + 1;
@@ -20,6 +41,8 @@ public class Carro {
 		}
 	}
 
+	public Integer velocidadeAtual;
+	
 	public void trocarMarcha(Integer marcha) {
 		if (marcha > 0 && marcha <= 6) {
 			marchaAtual = marcha;
