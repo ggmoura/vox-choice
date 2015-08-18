@@ -134,9 +134,9 @@ public class TelaConta {
 	private void criarConta(ContaCorrente conta) {
 		criarContaPadrao(conta);
 		System.out.print("Informe o valor da taxa de manutenção: ");
-		conta.taxaManutencao = leitor.nextDouble();
+		conta.setTaxaManutencao(leitor.nextDouble());
 		System.out.print("Informe o valor do limite de crédito: ");
-		conta.limiteCredito = leitor.nextDouble();
+		conta.setLimiteCredito(leitor.nextDouble());
 	}
 
 	private void criarContaPadrao(Conta conta) {
