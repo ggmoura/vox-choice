@@ -167,7 +167,7 @@ public class TelaConta {
 					+ "2 - Depositar\n"
 					+ "3 - Sacar\n"
 					+ "4 - Exibir Saldo\n"
-					+ "5 - Cadastrar Taxa Rendimento"
+					+ "5 - Cadastrar Taxa Rendimento\n"
 					+ "0 - Sair";
 		return menu;
 	}
