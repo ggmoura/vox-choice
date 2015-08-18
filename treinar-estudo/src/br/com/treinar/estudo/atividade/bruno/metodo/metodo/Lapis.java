@@ -1,4 +1,4 @@
-package br.com.treinar.estudo.atividade.bruno.metodo;
+package br.com.treinar.estudo.atividade.bruno.metodo.metodo;
 
 public class Lapis {
 	public String nome = "Fab";

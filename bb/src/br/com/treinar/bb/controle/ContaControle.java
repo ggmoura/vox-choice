@@ -20,7 +20,7 @@ public class ContaControle {
 	}
 	
 	public void gravarConta(Conta conta) {
-		conta.saldo = 0d;
+		conta.depositar(0d);
 		bancoDados.conta = conta;
 		
 	}
@@ -42,7 +42,7 @@ public class ContaControle {
 	}
 
 	public Double recuperarSaldo() {
-		return bancoDados.conta.saldo;
+		return bancoDados.conta.recuperarSaldo();
 	}
 	
 }
