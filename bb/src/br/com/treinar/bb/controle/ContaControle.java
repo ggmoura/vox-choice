@@ -2,6 +2,8 @@ package br.com.treinar.bb.controle;
 
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.ICaptalizavel;
+import br.com.treinar.bb.modelo.banco.ITarifavel;
 import br.com.treinar.bb.util.BancoDados;
 
 /**
@@ -17,7 +19,7 @@ public class ContaControle {
 	public BancoDados bancoDados;
 	
 	public ContaControle() {
-		bancoDados = new BancoDados();
+		bancoDados = BancoDados.getInstance();
 	}
 	
 	public void gravarConta(Conta conta) {
@@ -48,6 +50,25 @@ public class ContaControle {
 	
 	public void atualizarTaxaRendimento(Double valorTaxaRendimento) {
 		ContaPoupanca.setTaxaRendimento(valorTaxaRendimento);
+	}
+
+	public Double recuperarTaxaRendimentoPoupanca() {
+		return ContaPoupanca.getTaxaRendimento();
+	}
+
+	public void tarifar() {
+		Conta c = bancoDados.conta;
+		if (c instanceof ITarifavel) {
+			((ITarifavel) c).tarifar();
+		}
+	}
+
+	public void captalizar() {
+		Conta c = bancoDados.conta;
+		if (c instanceof ICaptalizavel) {
+			((ICaptalizavel) c).captalizar();
+		}
+		
 	}
 	
 }
