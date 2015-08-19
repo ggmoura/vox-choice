@@ -1,8 +1,9 @@
 package br.com.treinar.bb.modelo;
 
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 
-public class ContaPoupanca extends Conta {
+public class ContaPoupanca extends Conta implements ICaptalizavel {
 
 	private static Double taxaRendimento;
 	
@@ -22,6 +23,12 @@ public class ContaPoupanca extends Conta {
 
 	public static void setTaxaRendimento(Double taxaRendimento) {
 		ContaPoupanca.taxaRendimento = taxaRendimento;
+	}
+
+	@Override
+	public void captalizar() {
+		Double valor = getSaldo() * taxaRendimento / 100;
+		depositar(valor > 0 ? valor : 0d);
 	}
 
 	

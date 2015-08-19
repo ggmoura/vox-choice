@@ -2,7 +2,13 @@ package br.com.treinar.estudo.modelo;
 
 import br.com.treinar.estudo.modelo.principal.Pessoa;
 
-public class Mulher extends Pessoa {
+/**
+ * 
+ * 
+ * @author ADM
+ *
+ */
+public final class Mulher extends Pessoa {
 
 	public Boolean possuiSilicone;
 	

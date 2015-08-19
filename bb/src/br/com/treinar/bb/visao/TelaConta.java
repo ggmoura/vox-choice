@@ -45,6 +45,12 @@ public class TelaConta {
 			case 5:
 				atualizarTaxaRendimento();
 				break;
+			case 6:
+				pagarRendimentos();
+				break;
+			case 7:
+				cobrarTarifas();
+				break;
 
 			default:
 				break;
@@ -54,7 +60,17 @@ public class TelaConta {
 		
 	}
 
+	private void cobrarTarifas() {
+		controle.tarifar();
+	}
+
+	private void pagarRendimentos() {
+		controle.captalizar();
+	}
+
 	private void atualizarTaxaRendimento() {
+		
+		System.out.println("Taxa de Rendimento atual: " + controle.recuperarTaxaRendimentoPoupanca());
 		System.out.print("Informe o valor da taxa de rendimento: ");
 		Double valorTaxaRendimento = leitor.nextDouble();
 		controle.atualizarTaxaRendimento(valorTaxaRendimento);
@@ -123,9 +139,11 @@ public class TelaConta {
 	private void criarConta(ContaInvestimento conta) {
 		criarContaPadrao(conta);
 		System.out.print("Informe o valor da taxa de rendimento: ");
-		conta.taxaRendimento = leitor.nextDouble();
+		conta.setTaxaRendimento(leitor.nextDouble());
 		System.out.print("Informe a quantidade de meses para resgade: ");
-		conta.mesesParaResgate = leitor.nextInt();
+		conta.setMesesParaResgate(leitor.nextInt());
+		System.out.print("Informe o valor da taxa de manutenção: ");
+		conta.setTaxaManutencao(leitor.nextDouble());
 	}
 
 	private void criarConta(ContaSalario conta) {
@@ -168,6 +186,8 @@ public class TelaConta {
 					+ "3 - Sacar\n"
 					+ "4 - Exibir Saldo\n"
 					+ "5 - Cadastrar Taxa Rendimento\n"
+					+ "6 - Pagar Rendimentos\n"
+					+ "7 - Cobrar Tarifas\n"
 					+ "0 - Sair";
 		return menu;
 	}

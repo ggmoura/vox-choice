@@ -1,8 +1,9 @@
 package br.com.treinar.bb.modelo;
 
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.ITarifavel;
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements ITarifavel {
 
 	private Double limiteCredito;
 	private Double limiteCreditoAUtilizar;
@@ -68,6 +69,11 @@ public class ContaCorrente extends Conta {
 
 	public void setTaxaManutencao(Double taxaManutencao) {
 		this.taxaManutencao = taxaManutencao;
+	}
+
+	@Override
+	public void tarifar() {
+		sacar(taxaManutencao);
 	}
 
 }
