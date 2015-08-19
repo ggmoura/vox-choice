@@ -66,9 +66,12 @@ public class ContaControle {
 	public void captalizar() {
 		Conta c = bancoDados.conta;
 		if (c instanceof ICaptalizavel) {
-			((ICaptalizavel) c).captalizar();
+			captalizar((ICaptalizavel) c);
 		}
 		
 	}
 	
+	private void captalizar(ICaptalizavel c) {
+		c.captalizar();
+	}
 }

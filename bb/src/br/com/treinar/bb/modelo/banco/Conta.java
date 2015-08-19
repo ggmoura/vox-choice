@@ -3,13 +3,13 @@ package br.com.treinar.bb.modelo.banco;
 import br.com.treinar.bb.modelo.Pessoa;
 
 //Modelo de conta 
-public abstract class Conta {
+public abstract class Conta implements IProduto {
 
 	// atributos
 	private Long numeroConta;
 	private Pessoa cliente;
 	private Double saldo;
-	
+
 	public Conta() {
 		saldo = 0d;
 	}
@@ -49,4 +49,8 @@ public abstract class Conta {
 		this.saldo = saldo;
 	}
 
+	@Override
+	public Long getCodigo() {
+		return numeroConta;
+	}
 }
