@@ -47,19 +47,37 @@ public class TesteConversor {
 
 	}
 
+	private void energia() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void pressao() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void forca() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private static void temperatura() {
 		System.out.println("Escolha a temperatura de entrada.\n\n");
 		System.out.println("1-Celsius \n2-Kelvin \n3-Fahrenheit \n");
 		
 		leitor = new Scanner(System.in);
 		Integer i = leitor.nextInt();
+		Temperatura t = new Temperatura();
 
 		switch (i) {
 		case 1:
 			System.out.println("Digite o valor da temperatura de entrada.");
 			Double valor = leitor.nextDouble();
+			t.setCelsius(valor);
 			
-			
+			System.out.println("Temperatura Fahrenheit: " + t.converterCelsiusParaFahrenheit());
+			//System.out.println("Temperatura Kelvin: " + t.converterCelsiusParaKelvin());
 			
 			break;
 
