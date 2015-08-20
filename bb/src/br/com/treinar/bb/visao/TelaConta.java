@@ -77,14 +77,17 @@ public class TelaConta {
 	}
 
 	private void exibirSaldo() {
-		Double saldo = controle.recuperarSaldo();
+		
+		Long numerConta = selecionarConta();
+		Double saldo = controle.recuperarSaldo(numerConta);
 		System.out.println("O saldo da conta é: " + saldo);
 	}
 
 	private void sacar() {
 		System.out.print("Digite o valor a ser sacado: ");
 		Double valor = leitor.nextDouble();
-		Boolean sacou = controle.efetuarSaque(valor);
+		Long numeroConta = selecionarConta();
+		Boolean sacou = controle.efetuarSaque(valor, numeroConta);
 		
 		//Opção de if ternário
 		//System.out.println(sacou ? "Saque efetuado com sucesso!" : "Saque não efetuado!");
@@ -99,7 +102,8 @@ public class TelaConta {
 	private void depositar() {
 		System.out.print("Digite o valor a ser depositado: ");
 		Double valor = leitor.nextDouble();
-		controle.efetuarDeposito(valor);
+		Long numeroConta = selecionarConta();
+		controle.efetuarDeposito(valor, numeroConta);
 		System.out.println("Deposito efetuado com sucesso!");
 	}
 
@@ -166,10 +170,13 @@ public class TelaConta {
 	}
 
 	private void criarContaPadrao(Conta conta) {
+		System.out.print("Informe o numero da conta: ");
+		conta.setNumeroConta(leitor.nextLong());
+		leitor.nextLine();
 		System.out.print("Informe o nome do Cliente: ");
 		//remover linha deixada pela leitura de um numero
-		leitor.nextLine();
 		Pessoa cliente = new Pessoa();
+		
 		conta.setCliente(cliente);
 		conta.getCliente().setNome(leitor.nextLine());
 		System.out.print("Informe o CPF do Cliente: ");
@@ -191,5 +198,18 @@ public class TelaConta {
 					+ "0 - Sair";
 		return menu;
 	}
+	
+	private Long selecionarConta() {
+		System.out.println("Contas: ");
+		Conta[] contas = controle.recuperarContas();
+		for (Conta conta : contas) {
+			if (conta != null) {
+				System.out.println("\t" + conta.getNumeroConta() + " - " + conta.getCliente().getNome());
+			}
+		}
+		System.out.print("Selecione: ");
+		return leitor.nextLong();
+	}
+	
 	
 }

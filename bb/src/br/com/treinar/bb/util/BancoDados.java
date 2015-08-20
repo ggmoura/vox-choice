@@ -15,18 +15,44 @@ import br.com.treinar.bb.modelo.banco.Conta;
 public class BancoDados {
 
 	private static BancoDados instance;
-	public Conta conta;
+	
+	private Conta[] contas;
+	private Integer index;
+	
+	private BancoDados() {
+		contas = new Conta[5];
+		index = 0;
+	}
+
+	public void adicionarConta(Conta conta/*parametro do metodop*/) {
+		if (index < contas.length) {
+			contas[index++] = conta;			
+		}
+	}
+	
+	public Conta recuperarConta(Long numeroConta) {
+		Conta conta = null;
+		for (Conta contaTemp : contas) {
+			if (contaTemp != null && 
+					contaTemp.getNumeroConta().equals(numeroConta)) {
+				conta = contaTemp;
+				break;
+			}
+		}
+		return conta;
+	}
 	
 	static {
 		instance = new BancoDados();
 	}
 	
-	private BancoDados() {
-		super();
-	}
 	
 	public static BancoDados getInstance() {
 		return instance;
+	}
+
+	public Conta[] recuperarContas() {
+		return contas;
 	}
 	
 }

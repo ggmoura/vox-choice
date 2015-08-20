@@ -24,12 +24,13 @@ public class ContaControle {
 	
 	public void gravarConta(Conta conta) {
 		conta.depositar(0d);
-		bancoDados.conta = conta;
+		bancoDados.adicionarConta(conta);
 		
 	}
 
-	public void efetuarDeposito(Double valor) {
-		bancoDados.conta.depositar(valor);
+	public void efetuarDeposito(Double valor, Long numeroConta) {
+		Conta c = bancoDados.recuperarConta(numeroConta);
+		c.depositar(valor);
 	}
 
 	/**
@@ -39,13 +40,15 @@ public class ContaControle {
 	 * @param valor a ser sacado
 	 * @return true caso o saque seja efetuado e false caso contrário
 	 */
-	public Boolean efetuarSaque(Double valor) {
+	public Boolean efetuarSaque(Double valor, Long numeroConta) {
 		//Efetua o saque na conta
-		return bancoDados.conta.sacar(valor);
+		Conta c = bancoDados.recuperarConta(numeroConta);
+		return c != null ? c.sacar(valor) : Boolean.FALSE;
 	}
 
-	public Double recuperarSaldo() {
-		return bancoDados.conta.recuperarSaldo();
+	public Double recuperarSaldo(Long numeroConta) {
+		Conta c = bancoDados.recuperarConta(numeroConta);
+		return c.recuperarSaldo();
 	}
 	
 	public void atualizarTaxaRendimento(Double valorTaxaRendimento) {
@@ -57,17 +60,31 @@ public class ContaControle {
 	}
 
 	public void tarifar() {
-		Conta c = bancoDados.conta;
-		if (c instanceof ITarifavel) {
-			((ITarifavel) c).tarifar();
+		
+		Conta[] contas = recuperarContas();
+		
+		for (Conta conta : contas) {
+			if (conta != null && conta instanceof ITarifavel) {
+				((ITarifavel) conta).tarifar();
+			}			
 		}
 	}
 
+	public Conta[] recuperarContas() {
+		Conta[] contas = bancoDados.recuperarContas();
+		return contas;
+	}
+
 	public void captalizar() {
-		Conta c = bancoDados.conta;
-		if (c instanceof ICaptalizavel) {
-			captalizar((ICaptalizavel) c);
+		
+		Conta[] contas = recuperarContas();
+		
+		for (Conta conta : contas) {
+			if (conta != null && conta instanceof ICaptalizavel) {
+				captalizar((ICaptalizavel) conta);
+			}			
 		}
+		
 		
 	}
 	
