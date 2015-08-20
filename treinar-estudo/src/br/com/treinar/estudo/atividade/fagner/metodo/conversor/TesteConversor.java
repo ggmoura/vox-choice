@@ -1,10 +1,6 @@
 package br.com.treinar.estudo.atividade.fagner.metodo.conversor;
 
 import java.util.Scanner;
-import br.com.treinar.estudo.atividade.fagner.metodo.conversor.Temperatura;
-import br.com.treinar.estudo.atividade.fagner.metodo.conversor.Energia;
-import br.com.treinar.estudo.atividade.fagner.metodo.conversor.Forca;
-import br.com.treinar.estudo.atividade.fagner.metodo.conversor.Pressao;
 
 
 
