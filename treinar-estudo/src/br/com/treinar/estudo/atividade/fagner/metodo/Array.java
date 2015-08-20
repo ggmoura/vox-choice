@@ -1,4 +1,4 @@
-package br.com.treinar.estudo.atividade.fagner.metodo.conversor;
+package br.com.treinar.estudo.atividade.fagner.metodo;
 
 import java.util.Scanner;
 
