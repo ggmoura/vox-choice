@@ -39,5 +39,27 @@ public enum DiaSemana {
 		return ordemDia + " " + descricao + " " + (ehFolga ? "Folga" : "Vai ralar filho");
 	}
 	
+	public static DiaSemana recuperarDiaSemanaPorOrdem(Integer ordem) {
+		DiaSemana diaEncontrado = null;
+		for (DiaSemana dia : values()) {
+			if (dia.ordemDia.equals(ordem)) {
+				diaEncontrado = dia;
+				break;
+			}
+		}
+		return diaEncontrado;
+	}
+	
+	public static DiaSemana recuperarDiaSemanaPorDescricao(String descricao) {
+		DiaSemana diaEncontrado = null;
+		for (DiaSemana dia : values()) {
+			if (dia.descricao.equals(descricao)) {
+				diaEncontrado = dia;
+				break;
+			}
+		}
+		return diaEncontrado;
+	}
+	
 	
 }
