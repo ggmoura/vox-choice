@@ -12,6 +12,7 @@ public class Carro {
 	public Double valor;
 	public static Integer taxaIPVA;
 	public Placa placa;
+	public TipoCarro tipoCarro;
 	
 
 	static {
