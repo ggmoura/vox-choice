@@ -8,6 +8,7 @@ import br.com.treinar.bb.modelo.ContaInvestimento;
 import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.ContaSalario;
 import br.com.treinar.bb.modelo.Pessoa;
+import br.com.treinar.bb.modelo.Sexo;
 import br.com.treinar.bb.modelo.banco.Conta;
 
 public class TelaConta {
@@ -51,6 +52,9 @@ public class TelaConta {
 			case 7:
 				cobrarTarifas();
 				break;
+			case 8:
+				cancelar();
+				break;
 
 			default:
 				break;
@@ -58,6 +62,11 @@ public class TelaConta {
 			
 		} while (opcao != 0);
 		
+	}
+
+	private void cancelar() {
+		Long numeroConta = selecionarConta();
+		controle.cancelarConta(numeroConta);
 	}
 
 	private void cobrarTarifas() {
@@ -181,10 +190,14 @@ public class TelaConta {
 		conta.getCliente().setNome(leitor.nextLine());
 		System.out.print("Informe o CPF do Cliente: ");
 		conta.getCliente().setCpf(leitor.nextLong());
-		System.out.print("Informe o Sexo do Cliente: ");
+		System.out.print("Informe:\n");
+		System.out.println("\t" + Sexo.M + " para " + Sexo.M.getDescricao());
+		System.out.println("\t" + Sexo.F + " para " + Sexo.F.getDescricao());
+		System.out.print("-> ");
 		//remover linha deixada pela leitura de um numero
 		leitor.nextLine();
-		conta.getCliente().setSexo(leitor.nextLine());
+		String sexoStr = leitor.nextLine();
+		conta.getCliente().setSexo(Sexo.valueOf(sexoStr));
 	}
 
 	public String recuperarMenu() {
@@ -195,6 +208,7 @@ public class TelaConta {
 					+ "5 - Cadastrar Taxa Rendimento\n"
 					+ "6 - Pagar Rendimentos\n"
 					+ "7 - Cobrar Tarifas\n"
+					+ "8 - Cancelar Conta\n"
 					+ "0 - Sair";
 		return menu;
 	}
@@ -203,9 +217,7 @@ public class TelaConta {
 		System.out.println("Contas: ");
 		Conta[] contas = controle.recuperarContas();
 		for (Conta conta : contas) {
-			if (conta != null) {
-				System.out.println("\t" + conta.getNumeroConta() + " - " + conta.getCliente().getNome());
-			}
+			System.out.println("\t" + conta.getNumeroConta() + " - " + conta.getCliente().getNome());
 		}
 		System.out.print("Selecione: ");
 		return leitor.nextLong();

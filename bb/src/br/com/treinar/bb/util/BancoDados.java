@@ -1,6 +1,8 @@
 package br.com.treinar.bb.util;
 
+import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.SituacaoConta;
 
 /**
  * Padrao de projeto singleton
@@ -52,7 +54,19 @@ public class BancoDados {
 	}
 
 	public Conta[] recuperarContas() {
-		return contas;
+		Integer qtd = 0;
+		for (Conta conta : contas) {
+			if (conta != null && conta.getSituacao().equals(SituacaoConta.ATIVA)) {
+				qtd++;
+			}
+		}
+		Conta[] contasAtivas = new Conta[qtd];
+		for (int j = 0; j < contas.length; j++) {
+			if (contas[j] != null && contas[j].getSituacao().equals(SituacaoConta.ATIVA)) {
+				contasAtivas[j] = contas[j];
+			}			
+		}
+		return contasAtivas;
 	}
 	
 }
