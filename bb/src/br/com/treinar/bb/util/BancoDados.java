@@ -1,6 +1,5 @@
 package br.com.treinar.bb.util;
 
-import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.SituacaoConta;
 
