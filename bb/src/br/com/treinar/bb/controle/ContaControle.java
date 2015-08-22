@@ -95,6 +95,6 @@ public class ContaControle {
 
 	public void cancelarConta(Long numeroConta) {
 		Conta c = bancoDados.recuperarConta(numeroConta);
-		c.setSituacao(SituacaoConta.CANCELADA);
+		bancoDados.cancelarConta(c);
 	}
 }
