@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 
 
-public class TesteConversor {
+public class Conversor {
 
 	public static Scanner leitor;
 
 	
-	public TesteConversor() {
+	public Conversor() {
 		leitor = new Scanner(System.in);
 	}
 	
