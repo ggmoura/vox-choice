@@ -14,6 +14,7 @@ public class Carro {
 	public Placa placa;
 	public TipoCarro tipoCarro;
 	
+	
 
 	static {
 		taxaIPVA = 4;
