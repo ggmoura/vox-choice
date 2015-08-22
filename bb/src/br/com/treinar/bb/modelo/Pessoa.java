@@ -3,7 +3,7 @@ package br.com.treinar.bb.modelo;
 public class Pessoa {
 
 	private String nome;
-	private String sexo;
+	private Sexo sexo;
 	private Long cpf;
 
 	public String getNome() {
@@ -14,11 +14,11 @@ public class Pessoa {
 		this.nome = nome;
 	}
 
-	public String getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(String sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 

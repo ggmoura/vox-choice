@@ -9,6 +9,7 @@ public abstract class Conta implements IProduto {
 	private Long numeroConta;
 	private Pessoa cliente;
 	private Double saldo;
+	private SituacaoConta situacao;
 
 	public Conta() {
 		saldo = 0d;
@@ -49,8 +50,43 @@ public abstract class Conta implements IProduto {
 		this.saldo = saldo;
 	}
 
+	public SituacaoConta getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(SituacaoConta situacao) {
+		this.situacao = situacao;
+	}
+
 	@Override
 	public Long getCodigo() {
 		return numeroConta;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((numeroConta == null) ? 0 : numeroConta.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Conta other = (Conta) obj;
+		if (numeroConta == null) {
+			if (other.numeroConta != null)
+				return false;
+		} else if (!numeroConta.equals(other.numeroConta))
+			return false;
+		return true;
+	}
+
 }

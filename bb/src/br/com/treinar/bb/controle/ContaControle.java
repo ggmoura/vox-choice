@@ -4,6 +4,7 @@ import br.com.treinar.bb.modelo.ContaPoupanca;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.ITarifavel;
+import br.com.treinar.bb.modelo.banco.SituacaoConta;
 import br.com.treinar.bb.util.BancoDados;
 
 /**
@@ -24,8 +25,8 @@ public class ContaControle {
 	
 	public void gravarConta(Conta conta) {
 		conta.depositar(0d);
+		conta.setSituacao(SituacaoConta.ATIVA);
 		bancoDados.adicionarConta(conta);
-		
 	}
 
 	public void efetuarDeposito(Double valor, Long numeroConta) {
@@ -64,7 +65,7 @@ public class ContaControle {
 		Conta[] contas = recuperarContas();
 		
 		for (Conta conta : contas) {
-			if (conta != null && conta instanceof ITarifavel) {
+			if (conta instanceof ITarifavel) {
 				((ITarifavel) conta).tarifar();
 			}			
 		}
@@ -90,5 +91,10 @@ public class ContaControle {
 	
 	private void captalizar(ICaptalizavel c) {
 		c.captalizar();
+	}
+
+	public void cancelarConta(Long numeroConta) {
+		Conta c = bancoDados.recuperarConta(numeroConta);
+		c.setSituacao(SituacaoConta.CANCELADA);
 	}
 }
