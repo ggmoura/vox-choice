@@ -6,19 +6,19 @@ import java.util.Scanner;
 
 public class Conversor {
 
-	public static Scanner leitor;
+	public static Scanner Scanner;
 
 	
 	public Conversor() {
-		leitor = new Scanner(System.in);
+		Scanner = new Scanner(System.in);
 	}
 	
 	public void iniciarSistema() {
 	
-		System.out.println("Conversor de Unidades.\n\n\n");
+		System.out.println("Conversor de Unidades.\n\n");
 		System.out.println("Escolha a Unidade a ser convertida\n\n1-Temperatura \n2-Força \n3-Presão \n4-Energia");
 
-		Integer i = leitor.nextInt();
+		Integer i = Scanner.nextInt();
 		
 		switch (i) {
 
@@ -62,14 +62,14 @@ public class Conversor {
 		System.out.println("Escolha a temperatura de entrada.\n\n");
 		System.out.println("1-Celsius \n2-Kelvin \n3-Fahrenheit \n");
 		
-		leitor = new Scanner(System.in);
-		Integer i = leitor.nextInt();
+		Scanner = new Scanner(System.in);
+		Integer i = Scanner.nextInt();
 		Temperatura t = new Temperatura();
 
 		switch (i) {
 		case 1:
 			System.out.println("Digite o valor da temperatura de entrada.");
-			Double valor = leitor.nextDouble();
+			Double valor = Scanner.nextDouble();
 			t.setCelsius(valor);
 			
 			System.out.println("Temperatura Fahrenheit: " + t.converterCelsiusParaFahrenheit());

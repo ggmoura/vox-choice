@@ -32,9 +32,8 @@ public class Temperatura {
 
 	public Double converterCelsiusParaFahrenheit() {
 		Double resultado = null;
-		if (celsius != null) {
 			resultado = celsius * 1.8 + 32;
-		}
+	
 		return resultado;
 	}
 	
@@ -42,6 +41,24 @@ public class Temperatura {
 		
 		switch (entrada) {
 		case CELSIUS:
+			System.out.println("Escolha a temperatura de saida. ");
+			
+			switch (saida) {
+			case FAHRENHEIT:
+				Double resultado = null;
+				resultado = celsius * 1.8 + 32;
+				
+				return resultado;
+				
+			case KELVIN:
+				Double resultado2 = null;
+				resultado2 = celsius * 1.8 + 32;
+				
+				return resultado2;
+			default:
+				break;
+			
+			}
 			
 			break;
 		case KELVIN:
