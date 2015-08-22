@@ -13,7 +13,7 @@ import br.com.treinar.bb.modelo.banco.SituacaoConta;
  * @author ADM
  *
  */
-public class BancoDadosArray {
+public class BancoDadosArray implements IBancoDados<Conta[]> {
 
 	private static BancoDadosArray instance;
 	
@@ -66,6 +66,10 @@ public class BancoDadosArray {
 			}			
 		}
 		return contasAtivas;
+	}
+
+	public void cancelarConta(Conta c) {
+		c.setSituacao(SituacaoConta.CANCELADA);
 	}
 	
 }
