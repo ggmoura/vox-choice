@@ -13,14 +13,14 @@ import br.com.treinar.bb.modelo.banco.SituacaoConta;
  * @author ADM
  *
  */
-public class BancoDados {
+public class BancoDadosArray {
 
-	private static BancoDados instance;
+	private static BancoDadosArray instance;
 	
 	private Conta[] contas;
 	private Integer index;
 	
-	private BancoDados() {
+	private BancoDadosArray() {
 		contas = new Conta[5];
 		index = 0;
 	}
@@ -44,11 +44,11 @@ public class BancoDados {
 	}
 	
 	static {
-		instance = new BancoDados();
+		instance = new BancoDadosArray();
 	}
 	
 	
-	public static BancoDados getInstance() {
+	public static BancoDadosArray getInstance() {
 		return instance;
 	}
 

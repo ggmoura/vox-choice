@@ -5,7 +5,7 @@ import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.ITarifavel;
 import br.com.treinar.bb.modelo.banco.SituacaoConta;
-import br.com.treinar.bb.util.BancoDados;
+import br.com.treinar.bb.util.BancoDadosArray;
 
 /**
  * Camada de controle, importante para evitar que 
@@ -17,10 +17,10 @@ import br.com.treinar.bb.util.BancoDados;
  */
 public class ContaControle {
 
-	public BancoDados bancoDados;
+	public BancoDadosArray bancoDados;
 	
 	public ContaControle() {
-		bancoDados = BancoDados.getInstance();
+		bancoDados = BancoDadosArray.getInstance();
 	}
 	
 	public void gravarConta(Conta conta) {
