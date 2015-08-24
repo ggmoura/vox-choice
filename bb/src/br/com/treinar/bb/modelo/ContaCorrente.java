@@ -75,5 +75,4 @@ public class ContaCorrente extends Conta implements ITarifavel {
 	public void tarifar() {
 		sacar(taxaManutencao);
 	}
-
 }
