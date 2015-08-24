@@ -30,9 +30,7 @@ public class Carro {
 		//System.out.println(taxaIPVA / 100 * valor);
 		System.out.println(taxaIPVA * 100 / valor);
 	}
-
 	
-
 	public void acelerar() {
 		// velocidadeAtual = velocidadeAtual + 1;
 		// velocidadeAtual += 1;
