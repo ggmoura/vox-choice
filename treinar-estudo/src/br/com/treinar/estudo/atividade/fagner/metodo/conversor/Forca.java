@@ -5,6 +5,8 @@ public class Forca {
 	private String newton;
 	private String quilogramaForca;
 	private String libraForca;
+	
+	
 	public String getNewton() {
 		return newton;
 	}
