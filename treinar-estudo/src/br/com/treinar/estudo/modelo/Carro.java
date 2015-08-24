@@ -13,8 +13,6 @@ public class Carro {
 	public static Integer taxaIPVA;
 	public Placa placa;
 	public TipoCarro tipoCarro;
-	
-	
 
 	static {
 		taxaIPVA = 4;
