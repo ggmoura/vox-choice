@@ -13,7 +13,6 @@ import br.com.treinar.bb.util.BancoDadosArray;
  * de modelo evitando assim que uma camada de visão seja
  * reescrita sempre que uma nova visão seja criada
  * @author ADM
- *
  */
 public class ContaControle {
 
