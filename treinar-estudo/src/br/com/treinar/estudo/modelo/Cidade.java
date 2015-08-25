@@ -6,17 +6,17 @@ import br.com.treinar.estudo.modelo.principal.Pessoa;
 
 public class Cidade {
 
-	private Estado estado;
+	//private Estado estado;
 	private String nome;
 	private List<Pessoa> moradores;
 
-	public Estado getEstado() {
-		return estado;
-	}
+//	public Estado getEstado() {
+//		return estado;
+//	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
+//	public void setEstado(Estado estado) {
+//		this.estado = estado;
+//	}
 
 	public String getNome() {
 		return nome;
