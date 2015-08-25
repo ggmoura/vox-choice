@@ -2,6 +2,12 @@ package br.com.treinar.bb.modelo;
 
 import br.com.treinar.bb.modelo.banco.Conta;
 
+
+/**
+ * Conta salario herda de conta para 
+ * @author AS
+ *
+ */
 public class ContaSalario extends Conta {
 
 	public Double valorSalario;
