@@ -7,7 +7,7 @@ package br.com.treinar.estudo.modelo.principal;
  * @author ADM
  *
  */
-public abstract class Pessoa {
+public abstract class Pessoa implements Comparable<Pessoa> {
 
 	private String nome;
 	private Long cpf;
@@ -69,7 +69,11 @@ public abstract class Pessoa {
 		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", idade=" + idade	+ "]";
 	}
 
-
+	@Override
+	public int compareTo(Pessoa o) {
+		
+		return this.nome.compareTo(o.nome);
+	}
 
 	
 }

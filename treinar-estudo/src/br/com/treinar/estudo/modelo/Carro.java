@@ -1,9 +1,13 @@
 package br.com.treinar.estudo.modelo;
 
+import java.io.Serializable;
+
 import br.com.treinar.estudo.modelo.principal.Pessoa;
 
-public class Carro {
+public class Carro implements Serializable {
 
+	private static final long serialVersionUID = -4663616627283972355L;
+	
 	public String nome;
 	public Integer velocidadeMaxima;
 	public Integer qtdMarcha;
