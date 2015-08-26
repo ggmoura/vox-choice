@@ -3,6 +3,7 @@ package br.com.treinar.bb.modelo;
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ICaptalizavel;
 import br.com.treinar.bb.modelo.banco.ITarifavel;
+import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class ContaInvestimento extends Conta implements ITarifavel, ICaptalizavel {
 
@@ -11,14 +12,14 @@ public class ContaInvestimento extends Conta implements ITarifavel, ICaptalizave
 	private Integer mesesParaResgate;
 
 	@Override
-	public Boolean sacar(Double valor) {
+	public void sacar(Double valor) throws SaldoInsuficienteException {
 		valor += 2;
-		Boolean sacou = Boolean.FALSE;
 		if (getSaldo() >= valor) {
 			setSaldo(getSaldo() - valor);
-			sacou = Boolean.TRUE;
+		} else {
+			SaldoInsuficienteException sie = new SaldoInsuficienteException();
+			sie.setSaldoAtual(recuperarSaldo());
 		}
-		return sacou;
 	}
 
 	@Override
@@ -29,7 +30,12 @@ public class ContaInvestimento extends Conta implements ITarifavel, ICaptalizave
 
 	@Override
 	public void tarifar() {
-		sacar(taxaManutencao);
+		try {
+			sacar(taxaManutencao);
+		} catch (SaldoInsuficienteException e) {
+			//TODO - comunicar gerente que a conta nao possui 
+			//saldo para pagar as tarifas provavelmente devera ser cancelada
+		}
 	}
 
 	public Double getTaxaRendimento() {

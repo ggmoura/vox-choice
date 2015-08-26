@@ -20,7 +20,7 @@ public abstract class Conta implements IProduto {
 		saldo += valor;
 	}
 
-	public abstract Boolean sacar(Double valor);
+	public abstract void sacar(Double valor) throws SaldoInsuficienteException;
 
 	public Double recuperarSaldo() {
 		return saldo;

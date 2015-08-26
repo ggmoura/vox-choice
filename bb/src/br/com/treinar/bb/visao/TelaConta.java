@@ -10,6 +10,7 @@ import br.com.treinar.bb.modelo.ContaSalario;
 import br.com.treinar.bb.modelo.Pessoa;
 import br.com.treinar.bb.modelo.Sexo;
 import br.com.treinar.bb.modelo.banco.Conta;
+import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class TelaConta {
 
@@ -96,15 +97,11 @@ public class TelaConta {
 		System.out.print("Digite o valor a ser sacado: ");
 		Double valor = leitor.nextDouble();
 		Long numeroConta = selecionarConta();
-		Boolean sacou = controle.efetuarSaque(valor, numeroConta);
-		
-		//Opção de if ternário
-		//System.out.println(sacou ? "Saque efetuado com sucesso!" : "Saque não efetuado!");
-		
-		if (sacou) {
+		try {
+			controle.efetuarSaque(valor, numeroConta);
 			System.out.println("Saque efetuado com sucesso!");
-		} else {
-			System.out.println("Saque não efetuado!");			
+		} catch (SaldoInsuficienteException e) {
+			System.out.println("Saque não efetuado, o saldo atual é:" + e.getSaldoAtual());						
 		}
 	}
 
