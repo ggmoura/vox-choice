@@ -2,6 +2,7 @@ package br.com.treinar.bb.modelo;
 
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.ITarifavel;
+import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class ContaCorrente extends Conta implements ITarifavel {
 
@@ -10,9 +11,8 @@ public class ContaCorrente extends Conta implements ITarifavel {
 	private Double taxaManutencao;
 
 	@Override
-	public Boolean sacar(Double valor) {
+	public void sacar(Double valor) throws SaldoInsuficienteException {
 		valor += 1;
-		Boolean sacou = Boolean.FALSE;
 		if (getSaldo() + limiteCreditoAUtilizar >= valor) {
 			if (getSaldo() >= valor) {
 				setSaldo(getSaldo() - valor);				
@@ -21,9 +21,11 @@ public class ContaCorrente extends Conta implements ITarifavel {
 				setSaldo(0d);
 				limiteCreditoAUtilizar -= valor;
 			}
-			sacou = Boolean.TRUE;
+		} else {
+			SaldoInsuficienteException sie = new SaldoInsuficienteException();
+			sie.setSaldoAtual(recuperarSaldo());
+			throw sie;
 		}
-		return sacou;
 	}
 	
 	@Override
@@ -73,6 +75,11 @@ public class ContaCorrente extends Conta implements ITarifavel {
 
 	@Override
 	public void tarifar() {
-		sacar(taxaManutencao);
+		try {
+			sacar(taxaManutencao);
+		} catch (SaldoInsuficienteException e) {
+			//TODO - comunicar gerente que a conta nao possui 
+			//saldo para pagar as tarifas provavelmente devera ser cancelada
+		}
 	}
 }
