@@ -2,6 +2,8 @@ package br.com.treinar.estudo.modelo;
 
 import br.com.treinar.estudo.modelo.principal.Pessoa;
 
+
+
 /**
  * Quando a classe é definida como final, 
  * para que nao possa ser herdada

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import br.com.treinar.estudo.modelo.principal.Pessoa;
 
+
 public class Carro implements Serializable {
 
 	private static final long serialVersionUID = -4663616627283972355L;
