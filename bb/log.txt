@@ -1,0 +1,30 @@
+
+
+[Ljava.lang.StackTraceElement;@7d4991ad
+
+BOO-BOO: java.io.FileNotFoundException
+br.com.treinar.estudo.atividade.bruno.metodo.arquivos.Arquivos.salvar(Arquivos.java:98)
+br.com.treinar.estudo.atividade.bruno.metodo.arquivos.Arquivos.main(Arquivos.java:53)
+
+
+27/08/2015 05:33java.io.FileNotFoundException
+br.com.treinar.estudo.atividade.bruno.metodo.arquivos.Arquivos.salvar(Arquivos.java:98)
+br.com.treinar.estudo.atividade.bruno.metodo.arquivos.Arquivos.main(Arquivos.java:53)
+
+
+27/08/2015 05:34
+java.io.FileNotFoundException
+br.com.treinar.estudo.atividade.bruno.metodo.arquivos.Arquivos.salvar(Arquivos.java:98)
+br.com.treinar.estudo.atividade.bruno.metodo.arquivos.Arquivos.main(Arquivos.java:53)
+
+
+27/08/2015 05:40
+java.io.FileNotFoundException
+br.com.treinar.estudo.atividade.bruno.metodo.demo.Arquivos.salvar(Arquivos.java:101)
+br.com.treinar.estudo.atividade.bruno.metodo.demo.Arquivos.main(Arquivos.java:56)
+
+
+27/08/2015 05:41
+java.io.FileNotFoundException
+br.com.treinar.estudo.atividade.bruno.metodo.demo.Arquivos.salvar(Arquivos.java:101)
+br.com.treinar.estudo.atividade.bruno.metodo.demo.Arquivos.main(Arquivos.java:56)

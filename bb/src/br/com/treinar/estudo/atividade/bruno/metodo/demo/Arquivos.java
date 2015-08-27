@@ -1,4 +1,4 @@
-package br.com.treinar.estudo.atividade.bruno.metodo.arquivos;
+package br.com.treinar.estudo.atividade.bruno.metodo.demo;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,11 +16,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import br.com.treinar.estudo.atividade.bruno.metodo.util.LogSys;
+
 import java.util.Scanner;
 import java.util.Set;
 
 public class Arquivos {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		Scanner leitor = new Scanner(System.in);
 		String nome = null;
 		Map<Character, List<String>> mapPessoa = new HashMap<>(); // HashMap<Chave,Oq
@@ -79,7 +82,7 @@ public class Arquivos {
 		nomes.add(nome);
 	}
 
-	public static void salvar(Map<Character, List<String>> mapa)  {
+	public static void salvar(Map<Character, List<String>> mapa) throws Exception  {
 		try {
 			OutputStream arq;
 			arq = new FileOutputStream("nomes.txt", Boolean.FALSE);
@@ -95,12 +98,14 @@ public class Arquivos {
 				}
 			}
 			txt.close();
+			throw new FileNotFoundException();
 		} catch (FileNotFoundException e) {
 			System.out.println("Você não tem permissão para ler o arquivo");
+			LogSys.logsistema(e);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LogSys.logsistema(e);
 		} 
 
 	}
