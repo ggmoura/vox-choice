@@ -1,10 +1,14 @@
 package br.com.treinar.bb.modelo.banco;
 
+import java.io.Serializable;
+
 import br.com.treinar.bb.modelo.Pessoa;
 
 //Modelo de conta 
-public abstract class Conta implements IProduto {
-
+public abstract class Conta implements IProduto, Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	// atributos
 	private Long numeroConta;
 	private Pessoa cliente;

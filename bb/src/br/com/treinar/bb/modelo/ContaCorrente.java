@@ -6,6 +6,8 @@ import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class ContaCorrente extends Conta implements ITarifavel {
 
+	private static final long serialVersionUID = 1L;
+	
 	private Double limiteCredito;
 	private Double limiteCreditoAUtilizar;
 	private Double taxaManutencao;

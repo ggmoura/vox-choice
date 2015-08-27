@@ -4,16 +4,18 @@ import java.util.Scanner;
 
 public class Testexception {
 	public static void main(String[] args) {
-		Integer num;
+		Integer num = 0;
     
 		Scanner s = new Scanner(System.in);	
-		try {
-			num = 1;
-		} catch (Exception e) {
+		//try {
+			System.out.println("digite um numero: ");
+			num = s.nextInt();
+		
+		//} catch (InputMismatchException e) {
 			// TODO: handle exception
-		}
+		//}
     
-    
+   s.close();
     
 		
 		

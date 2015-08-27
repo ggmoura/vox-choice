@@ -31,6 +31,10 @@ public class TelaConta {
 			opcao = leitor.nextInt();
 			
 			switch (opcao) {
+			case 0:
+				controle.sair();
+				break;
+			
 			case 1:
 				cadastrarConta();
 				//System.out.println(conta.cliente.nome);
