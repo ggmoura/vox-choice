@@ -42,11 +42,7 @@ public class Arquivos {
 		for (String n : nomes) {
 			organizar(n, mapPessoa);
 		}
-
-		Set<Entry<Character, List<String>>> listas = mapPessoa.entrySet();
-		for (Entry<Character, List<String>> chaves : listas) {
-			Collections.sort(chaves.getValue());
-		}
+		
 		System.out.println(mapPessoa);
 
 		salvar(mapPessoa);
@@ -87,6 +83,7 @@ public class Arquivos {
 		Set<Entry<Character, List<String>>> entrySet = mapa.entrySet();
 
 		for (Entry<Character, List<String>> entry : entrySet) {
+			Collections.sort(entry.getValue());
 			for (String nome : entry.getValue()) {
 				txt.write(nome);
 				txt.newLine();

@@ -11,6 +11,8 @@ import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
  */
 public class ContaSalario extends Conta {
 
+	private static final long serialVersionUID = 1L;
+	
 	public Double valorSalario;
 	
 	@Override

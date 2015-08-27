@@ -7,6 +7,8 @@ import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class ContaInvestimento extends Conta implements ITarifavel, ICaptalizavel {
 
+	private static final long serialVersionUID = 1L;
+	
 	private Double taxaRendimento;
 	private Double taxaManutencao;
 	private Integer mesesParaResgate;

@@ -6,6 +6,8 @@ import br.com.treinar.bb.modelo.banco.SaldoInsuficienteException;
 
 public class ContaPoupanca extends Conta implements ICaptalizavel {
 
+	private static final long serialVersionUID = 1L;
+	
 	private static Double taxaRendimento;
 	
 	@Override
