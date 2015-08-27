@@ -1,5 +1,6 @@
 package br.com.treinar.estudo.atividade.roger;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Testexception {
@@ -7,13 +8,13 @@ public class Testexception {
 		Integer num = 0;
     
 		Scanner s = new Scanner(System.in);	
-		//try {
+		try {
 			System.out.println("digite um numero: ");
 			num = s.nextInt();
 		
-		//} catch (InputMismatchException e) {
-			// TODO: handle exception
-		//}
+		} catch (InputMismatchException e) {
+		 System.out.println("numero invalido");
+		}
     
    s.close();
     
