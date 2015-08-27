@@ -1,5 +1,11 @@
 package br.com.treinar.estudo.atividade.fagner.metodo;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,7 +18,7 @@ import java.util.Set;
 
 public class MapColecao {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		Map<Character, List<String>> colecao  = new HashMap<>() ;
 		
@@ -38,12 +44,21 @@ public class MapColecao {
 			
 		} while (!nome.equals("sair"));
 		
+		OutputStream ops = new FileOutputStream("texto.txt");
+		OutputStreamWriter opw = new OutputStreamWriter(ops);
+		BufferedWriter bw = new BufferedWriter(opw);
+		
+		
 		Set<Entry<Character, List<String>>> listas = colecao.entrySet();
 		
 		for (Entry<Character, List<String>> entry : listas) {
-			Collections.sort(entry.getValue());
+			for (String nome2 : entry.getValue()) {
+				bw.write(nome2);
+				bw.newLine();
+			}
+			
 		}
-		
+		bw.close();
 		System.out.println(colecao);
 		sc.close();
 		System.out.println("Fim");
