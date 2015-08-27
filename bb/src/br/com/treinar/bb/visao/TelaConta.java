@@ -16,28 +16,28 @@ public class TelaConta {
 
 	public Scanner leitor;
 	public ContaControle controle;
-	
+
 	public TelaConta() {
 		leitor = new Scanner(System.in);
 		controle = new ContaControle();
 	}
-	
+
 	public void iniciarSistema() {
-		
+
 		Integer opcao = null;
 		do {
-			
+
 			System.out.println(recuperarMenu());
 			opcao = leitor.nextInt();
-			
+
 			switch (opcao) {
 			case 0:
 				controle.sair();
 				break;
-			
+
 			case 1:
 				cadastrarConta();
-				//System.out.println(conta.cliente.nome);
+				// System.out.println(conta.cliente.nome);
 				break;
 			case 2:
 				depositar();
@@ -60,13 +60,26 @@ public class TelaConta {
 			case 8:
 				cancelar();
 				break;
+			case 9:
+				listarContas();
+				break;
 
 			default:
 				break;
 			}
-			
+
 		} while (opcao != 0);
-		
+
+	}
+
+	private void listarContas() {// n conta, tipo conta. nome. saldo
+		System.out.println("Contas: ");
+		Conta[] contas = controle.recuperarContas();
+		for (Conta conta : contas) {
+			System.out.println("\t" + conta.getNumeroConta() + " - " + conta.getClass().getSimpleName() + " - "
+					+ conta.getCliente().getNome() + " - " + controle.recuperarSaldo(conta.getNumeroConta()));
+		}
+		System.out.println("\n\n");
 	}
 
 	private void cancelar() {
@@ -83,7 +96,7 @@ public class TelaConta {
 	}
 
 	private void atualizarTaxaRendimento() {
-		
+
 		System.out.println("Taxa de Rendimento atual: " + controle.recuperarTaxaRendimentoPoupanca());
 		System.out.print("Informe o valor da taxa de rendimento: ");
 		Double valorTaxaRendimento = leitor.nextDouble();
@@ -91,7 +104,7 @@ public class TelaConta {
 	}
 
 	private void exibirSaldo() {
-		
+
 		Long numerConta = selecionarConta();
 		Double saldo = controle.recuperarSaldo(numerConta);
 		System.out.println("O saldo da conta é: " + saldo);
@@ -105,7 +118,7 @@ public class TelaConta {
 			controle.efetuarSaque(valor, numeroConta);
 			System.out.println("Saque efetuado com sucesso!");
 		} catch (SaldoInsuficienteException e) {
-			System.out.println("Saque não efetuado, o saldo atual é:" + e.getSaldoAtual());						
+			System.out.println("Saque não efetuado, o saldo atual é:" + e.getSaldoAtual());
 		}
 	}
 
@@ -118,30 +131,29 @@ public class TelaConta {
 	}
 
 	private void cadastrarConta() {
-		System.out.println("Digite\n1 - Corrente\n"
-				         + "2 - Poupança\n3 - Salário\n4 - Investimento");
+		System.out.println("Digite\n1 - Corrente\n" + "2 - Poupança\n3 - Salário\n4 - Investimento");
 		Conta conta = null;
 		Integer opcao = leitor.nextInt();
 		switch (opcao) {
 		case 1:
 			conta = new ContaCorrente();
-			criarConta((ContaCorrente)conta);
+			criarConta((ContaCorrente) conta);
 			break;
 		case 2:
 			conta = new ContaPoupanca();
 			criarConta((ContaPoupanca) conta);
 			break;
 		case 3:
-			//poderia criar a conta e passar o objeto mas para isso
-			//tenho que fazer o casting
+			// poderia criar a conta e passar o objeto mas para isso
+			// tenho que fazer o casting
 			conta = new ContaSalario();
-			criarConta((ContaSalario)conta);
-			
+			criarConta((ContaSalario) conta);
+
 			break;
 		case 4:
 			conta = new ContaInvestimento();
-			criarConta((ContaInvestimento)conta);
-			
+			criarConta((ContaInvestimento) conta);
+
 			break;
 
 		default:
@@ -149,7 +161,7 @@ public class TelaConta {
 		}
 		controle.gravarConta(conta);
 	}
-	
+
 	private void criarConta(ContaInvestimento conta) {
 		criarContaPadrao(conta);
 		System.out.print("Informe o valor da taxa de rendimento: ");
@@ -163,12 +175,12 @@ public class TelaConta {
 	private void criarConta(ContaSalario conta) {
 		criarContaPadrao(conta);
 		System.out.print("Informe o valor do salário: ");
-		conta.valorSalario = leitor.nextDouble();				
+		conta.valorSalario = leitor.nextDouble();
 	}
 
 	private void criarConta(ContaPoupanca conta) {
 		criarContaPadrao(conta);
-		//mais algum atribudo pertinente a conta poupança
+		// mais algum atribudo pertinente a conta poupança
 	}
 
 	private void criarConta(ContaCorrente conta) {
@@ -184,9 +196,9 @@ public class TelaConta {
 		conta.setNumeroConta(leitor.nextLong());
 		leitor.nextLine();
 		System.out.print("Informe o nome do Cliente: ");
-		//remover linha deixada pela leitura de um numero
+		// remover linha deixada pela leitura de um numero
 		Pessoa cliente = new Pessoa();
-		
+
 		conta.setCliente(cliente);
 		conta.getCliente().setNome(leitor.nextLine());
 		System.out.print("Informe o CPF do Cliente: ");
@@ -195,25 +207,19 @@ public class TelaConta {
 		System.out.println("\t" + Sexo.M + " para " + Sexo.M.getDescricao());
 		System.out.println("\t" + Sexo.F + " para " + Sexo.F.getDescricao());
 		System.out.print("-> ");
-		//remover linha deixada pela leitura de um numero
+		// remover linha deixada pela leitura de um numero
 		leitor.nextLine();
 		String sexoStr = leitor.nextLine();
 		conta.getCliente().setSexo(Sexo.valueOf(sexoStr));
 	}
 
 	public String recuperarMenu() {
-		String menu = "1 - Criar Conta\n"
-					+ "2 - Depositar\n"
-					+ "3 - Sacar\n"
-					+ "4 - Exibir Saldo\n"
-					+ "5 - Cadastrar Taxa Rendimento\n"
-					+ "6 - Pagar Rendimentos\n"
-					+ "7 - Cobrar Tarifas\n"
-					+ "8 - Cancelar Conta\n"
-					+ "0 - Sair";
+		String menu = "1 - Criar Conta\n" + "2 - Depositar\n" + "3 - Sacar\n" + "4 - Exibir Saldo\n"
+				+ "5 - Cadastrar Taxa Rendimento\n" + "6 - Pagar Rendimentos\n" + "7 - Cobrar Tarifas\n"
+				+ "8 - Cancelar Conta\n" + "9 - Listar contas\n" + "0 - Sair";
 		return menu;
 	}
-	
+
 	private Long selecionarConta() {
 		System.out.println("Contas: ");
 		Conta[] contas = controle.recuperarContas();
@@ -223,6 +229,5 @@ public class TelaConta {
 		System.out.print("Selecione: ");
 		return leitor.nextLong();
 	}
-	
-	
+
 }
