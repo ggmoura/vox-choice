@@ -1,5 +1,11 @@
 package br.com.treinar.bb.util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import br.com.treinar.bb.modelo.banco.Conta;
 import br.com.treinar.bb.modelo.banco.SituacaoConta;
 
@@ -21,8 +27,7 @@ public class BancoDadosArray implements IBancoDados<Conta[]> {
 	private Integer index;
 	
 	private BancoDadosArray() {
-		contas = new Conta[5];
-		index = 0;
+		carregarObjetos();
 	}
 
 	public void adicionarConta(Conta conta/*parametro do metodop*/) {
@@ -70,6 +75,51 @@ public class BancoDadosArray implements IBancoDados<Conta[]> {
 
 	public void cancelarConta(Conta c) {
 		c.setSituacao(SituacaoConta.CANCELADA);
+	}
+	
+	public void gravarDados() {
+        try {
+            //Gera o arquivo para armazenar o objeto
+            FileOutputStream arquivoGrav = new FileOutputStream("contas.dat");
+            //Classe responsavel por inserir os objetos
+            ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
+            //Grava o objeto cliente no arquivo
+            objGravar.writeObject(contas);
+            objGravar.flush();
+            objGravar.close();
+            arquivoGrav.flush();
+            arquivoGrav.close();
+            System.out.println("Contas gravadas com sucesso!");
+
+        } catch (Exception e) {
+        	System.out.println(e);
+        }
+	}
+	
+	private void carregarObjetos() {
+		try {
+			File f = new File("contas.dat");
+			if (f.exists()) {
+				FileInputStream arquivoLeitura = new FileInputStream("contas.dat");
+				ObjectInputStream objLeitura = new ObjectInputStream(arquivoLeitura);
+				contas = (Conta[]) objLeitura.readObject();				
+				objLeitura.close();
+	            arquivoLeitura.close();
+	            
+	            for (int i = 0; i < contas.length; i++) {
+					if (contas[i] == null) {
+						index = i;
+						break;
+					}
+				}
+	            
+			} else {
+				contas = new Conta[50];
+				index = 0;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
