@@ -1,10 +1,11 @@
-package br.com.treinar.estudo.atividade.bruno.metodo;
+package br.com.treinar.estudo.atividade.bruno.metodo.demo;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 public class DemoCalendar {
+	
 	public static void main(String[] args) {
 		// ****Calendar****
 		Calendar nacimento = Calendar.getInstance();

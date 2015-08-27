@@ -1,4 +1,4 @@
-package br.com.treinar.estudo.atividade.bruno.metodo;
+package br.com.treinar.estudo.atividade.bruno.metodo.demo;
 
 import java.util.*;
 import java.util.Map.Entry;
