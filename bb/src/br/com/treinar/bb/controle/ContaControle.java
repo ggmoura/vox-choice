@@ -108,4 +108,8 @@ public class ContaControle {
 		Conta c = bancoDados.recuperarConta(numeroConta);
 		bancoDados.cancelarConta(c);
 	}
+
+	public void sair() {
+		bancoDados.gravarDados();
+	}
 }
