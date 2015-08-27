@@ -31,7 +31,7 @@ public class DemoCalendar {
 				"Setembro", "Outubro", "Novenbro", "Dezembro"};
 		
 		Calendar nacimento2 = new GregorianCalendar(ano,mes-1,dia);
-		System.out.println(nacimento2.get(nacimento2.DAY_OF_MONTH)+" "+meses[nacimento2.MONTH]+" "+nacimento2.get(nacimento2.YEAR));
+		System.out.println(nacimento2.get(Calendar.DAY_OF_MONTH)+" "+meses[Calendar.MONTH]+" "+nacimento2.get(Calendar.YEAR));
 		//**GregorianCalendar
 		
 	}
