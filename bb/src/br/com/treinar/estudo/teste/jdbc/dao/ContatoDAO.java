@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.com.treinar.estudo.teste.jdbc.ConnectionFactory;
+import br.com.treinar.estudo.teste.jdbc.exception.RegistroNaoEncontradoException;
 import br.com.treinar.estudo.teste.jdbc.modelo.Contato;
 
 public class ContatoDAO {
@@ -24,10 +25,11 @@ public class ContatoDAO {
 
 	public void adicionar(Contato contato) {
 		String sql = "insert into contato "
-				+ "(nome, email, endereco, dataNascimento)" + " values (?,?,?,?)";
+				+ "(nome, email, endereco, dataNascimento) values (?, ?, ?, ?)";
 
 		try {
 			// prepared statement para inserção
+			connection.setAutoCommit(Boolean.FALSE);
 			PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			// seta os valores
@@ -48,6 +50,34 @@ public class ContatoDAO {
 		}
 	}
 
+	public Contato recuperarPorID(Long id) throws RegistroNaoEncontradoException, Exception {
+		
+		Contato contato = null;
+		PreparedStatement stmt = this.connection.prepareStatement("select * from contato where id = ?");
+		stmt.setLong(1, id);
+		
+		ResultSet rs = stmt.executeQuery();
+		if (rs.next()) {
+			// criando o objeto Contato
+			contato = new Contato();
+			contato.setId(rs.getLong("id"));
+			contato.setNome(rs.getString("nome"));
+			contato.setEmail(rs.getString("email"));
+			contato.setEndereco(rs.getString("endereco"));
+
+			// montando a data através do Calendar
+			Calendar data = Calendar.getInstance();
+			data.setTime(rs.getDate("dataNascimento"));
+			contato.setDataNascimento(data.getTime());
+		} else {
+			throw new RegistroNaoEncontradoException();
+		}
+		return contato;
+
+		
+	}
+	
+	
 	public List<Contato> getLista() {
 		try {
 			List<Contato> contatos = new ArrayList<Contato>();
