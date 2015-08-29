@@ -14,7 +14,7 @@ import br.com.treinar.estudo.teste.jdbc.ConnectionFactory;
 import br.com.treinar.estudo.teste.jdbc.exception.RegistroNaoEncontradoException;
 import br.com.treinar.estudo.teste.jdbc.modelo.Contato;
 
-public class ContatoDAO {
+public class ContatoDAO implements IGenericDAO<Contato> {
 
 	// a conexão com o banco de dados
 	private Connection connection;
@@ -129,5 +129,10 @@ public class ContatoDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public void excluir(Long id) {
+		//stub
+	}
+	
 
 }
