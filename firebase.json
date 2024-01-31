@@ -1,10 +1,19 @@
 {
-  "hosting": {
-    "public": "src",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  }
+  "hosting": [
+    {
+      "public": "src",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "vox-choice",
+      "source": ".",
+      "frameworksBackend": {
+        "region": "us-east1"
+      }
+    }
+  ]
 }

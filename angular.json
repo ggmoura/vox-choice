@@ -93,6 +93,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "vox-choice:build:production",
+              "serveTarget": "vox-choice:serve:production"
+            },
+            "development": {
+              "buildTarget": "vox-choice:build:development",
+              "serveTarget": "vox-choice:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

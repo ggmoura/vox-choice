@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "vox-choice-248"
+  },
+  "targets": {
+    "vox-choice-248": {
+      "hosting": {
+        "vox-choice": [
+          "vox-choice-248"
+        ]
+      }
+    }
   }
 }
