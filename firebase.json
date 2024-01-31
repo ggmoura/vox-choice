@@ -9,7 +9,7 @@
       ]
     },
     {
-      "target": "vox-choice",
+      "target": "vox-choice-248",
       "source": ".",
       "frameworksBackend": {
         "region": "us-east1"
