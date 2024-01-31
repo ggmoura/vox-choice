@@ -1,5 +1,5 @@
 {
-  "hosting": [
+  "hosting":
     {
       "site": "vox-choice-248",
       "public": "src",
@@ -8,13 +8,5 @@
         "**/.*",
         "**/node_modules/**"
       ]
-    },
-    {
-      "target": "vox-choice-248",
-      "source": ".",
-      "frameworksBackend": {
-        "region": "us-east1"
-      }
     }
-  ]
 }
