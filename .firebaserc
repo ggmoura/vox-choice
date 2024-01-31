@@ -7,8 +7,12 @@
       "hosting": {
         "vox-choice": [
           "vox-choice-248"
+        ],
+        "vox_choice_248": [
+          "dist/vox-choice"
         ]
       }
     }
-  }
+  },
+  "etags": {}
 }
