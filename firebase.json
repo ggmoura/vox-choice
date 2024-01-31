@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "public": "src",
+      "public": "dist/vox-choice",
       "ignore": [
         "firebase.json",
         "**/.*",
