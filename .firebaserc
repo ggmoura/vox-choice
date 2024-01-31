@@ -5,10 +5,7 @@
   "targets": {
     "vox-choice-248": {
       "hosting": {
-        "vox-choice": [
-          "vox-choice-248"
-        ],
-        "vox_choice_248": [
+        "vox-choice-248": [
           "dist/vox-choice"
         ]
       }
