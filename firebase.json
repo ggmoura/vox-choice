@@ -2,7 +2,7 @@
   "hosting":
     {
       "site": "vox-choice-248",
-      "public": "src",
+      "public": "dist/vox-choice/browser",
       "ignore": [
         "firebase.json",
         "**/.*",
