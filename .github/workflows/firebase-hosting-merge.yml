@@ -20,6 +20,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_VOX_CHOICE_248 }}'
           channelId: live
           projectId: vox-choice-248
-          message: 'Deploy from GitHub Actions'
         env:
           FIREBASE_CLI_EXPERIMENTS: webframeworks
