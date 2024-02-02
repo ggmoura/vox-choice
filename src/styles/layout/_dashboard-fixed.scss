@@ -1,0 +1,24 @@
+.vc-nav-fixed {
+  .vc-topnav {
+    @extend .fixed-top;
+    z-index: $zindex-topnav;
+  }
+  #layoutSidenav {
+    #layoutSidenav_nav {
+      @extend .fixed-top;
+      width: $sidenav-base-width;
+      height: 100vh;
+      z-index: $zindex-sidenav;
+      .vc-sidenav {
+        padding-top: $topnav-base-height;
+        .vc-sidenav-menu {
+          overflow-y: auto;
+        }
+      }
+    }
+    #layoutSidenav_content {
+      padding-left: $sidenav-base-width;
+      margin-top: $topnav-base-height;
+    }
+  }
+}

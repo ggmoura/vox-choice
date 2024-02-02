@@ -1,0 +1,18 @@
+a.nav-link(
+    [routerLink]='sideNavItem.link',
+    (click)='expanded = !expanded',
+    [ngClass]='{active: isActive, collapsed: !expanded}'
+)
+    .vc-nav-link-icon(*ngIf='sideNavItem.icon')
+        fa-icon([icon]='["fas", sideNavItem.icon]')
+    | {{sideNavItem.text}}
+    .vc-sidenav-collapse-arrow
+        fa-icon(
+            *ngIf='sideNavItem.submenu',
+            [icon]="['fas', 'angle-down']"
+        ).ml-auto
+nav.vc-sidenav-menu-nested.nav(*ngIf='sideNavItem.submenu && expanded')
+    vc-side-nav-item.submenu(
+        *ngFor='let submenuItem of sideNavItem.submenu',
+        [sideNavItem]='submenuItem'
+    )

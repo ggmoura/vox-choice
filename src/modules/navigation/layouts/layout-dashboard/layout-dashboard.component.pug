@@ -1,0 +1,14 @@
+span([ngClass]='{"vc-nav-fixed": !static}')
+    vc-top-nav
+    #layoutSidenav
+        #layoutSidenav_nav
+            vc-side-nav(
+                [sidenavStyle]='sidenavStyle',
+                [sideNavItems]='sideNavItems',
+                [sideNavSections]='sideNavSections'
+            )
+        #layoutSidenav_content
+            main
+                .container-fluid
+                    ng-content
+            vc-footer

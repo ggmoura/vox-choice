@@ -1,0 +1,12 @@
+vc-layout-dashboard([static]='true')
+    vc-dashboard-head(title='Dashboard Static', [hideBreadcrumbs]='false')
+    vc-dashboard-cards
+    vc-dashboard-charts
+    vc-dashboard-tables
+    vc-card
+        .card-header
+            fa-icon.mr-1([icon]='["fas", "chart-pie"]')
+            | Pie Chart Example
+        .card-body
+            vc-charts-pie
+        .card-footer.small.text-muted Updated yesterday at 11:59 PM
